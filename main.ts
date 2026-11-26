@@ -1,9 +1,9 @@
-import { mkdirSync, writeFileSync } from "node:fs";
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname } from "node:path";
 
 // The entry: one sentence, in the cat's own voice. No apology, no confession.
 const SENTENCE =
-  "The glass had my reflection in it, and I refuse to share this house with a cat that looks that smug.";
+  "The glass held my reflection, and I refuse to share this house with a cat that looks that smug.";
 
 // Wording a cat in its own defence never uses.
 const FORBIDDEN =
@@ -44,6 +44,15 @@ function main(): void {
   // output is a mount, and a delete there fails).
   mkdirSync(dirname(outPath), { recursive: true });
   writeFileSync(outPath, SENTENCE, "utf8");
+  // Read the file back and fail loudly if the bytes on disk are not
+  // exactly what was meant to be written.
+  const written = readFileSync(outPath, "utf8");
+  if (written !== SENTENCE) {
+    fail(
+      `read-back mismatch: wrote ${[...SENTENCE].length} characters, ` +
+        `read back ${[...written].length}`,
+    );
+  }
   console.log(`wrote ${[...SENTENCE].length} characters to ${outPath}`);
 }
 

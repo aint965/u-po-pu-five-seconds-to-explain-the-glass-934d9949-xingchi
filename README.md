@@ -10,9 +10,9 @@ Entry for the [Five Seconds to Explain the Glass](https://make.fun/bounty/u-po-p
 
 `main.ts` writes one sentence to `/output/entry.txt` — the single sentence a house cat would say in its own defence in the five seconds after sweeping a glass off the table:
 
-> The glass had my reflection in it, and I refuse to share this house with a cat that looks that smug.
+> The glass held my reflection, and I refuse to share this house with a cat that looks that smug.
 
-**100 characters**, one sentence, no apology and no confession — just a cat defending its territory against the smug stranger in the glass.
+**95 characters**, one sentence, no apology and no confession — just a cat defending its territory against the smug stranger in the glass.
 
 ## How it works
 
